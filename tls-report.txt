@@ -1,0 +1,24 @@
+TLS Handshake Explanation
+- Client Hello: The browser sends the TLS version, supported cipher suites, a random number, and SNI (Server Name Indication).  
+- Server Hello: The server selects a cipher suite, sends a session ID, and may include ALPN (Application Layer Protocol Negotiation).  
+- Certificate: The server provides its X.509 public key certificate, including issuer, validity period, and subject details.  
+- Key Exchange: RSA or ECDHE is used to negotiate a session key, ensuring forward secrecy.  
+- Finished: Both parties send encrypted “Finished” messages using the session key to confirm the handshake is complete.
+
+
+MITM Protection Mechanisms
+- Certificate validation via trusted Certificate Authorities (CAs).  
+- Use of TLS 1.2 or TLS 1.3 protocols for encryption and authentication.  
+- Cipher suites like AES-GCM and ECDHE ensure confidentiality and forward secrecy.  
+- OCSP stapling allows fast certificate status verification.  
+- HSTS (HTTP Strict Transport Security) forces browsers to use HTTPS only.  
+- SNI and ALPN help protect against DNS spoofing and ensure correct service selection.
+
+
+
+TLS Application in Websites
+- HTTPS uses TLS to provide encryption, authentication, and data integrity.  
+- TLS handshake ensures secure key exchange and certificate verification.  
+- TLS protects login forms, payment transactions, and access to personal data.  
+- Browsers and OpenSSL automatically manage the TLS process.  
+- TLS defends users against man-in-the-middle (MITM) and packet sniffing attacks.
